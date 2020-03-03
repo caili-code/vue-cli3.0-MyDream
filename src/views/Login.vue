@@ -19,6 +19,7 @@
 
 <script>
 	// @ is an alias to /src
+import {login} from '../api/service.js'
 
 	export default {
 		data(){
@@ -32,7 +33,8 @@
 		},
 		methods:{
 			loginCheck(){
-				console.log(this.loginData)
+				console.log(this.loginData);
+				login(this.loginData.username,this.loginData.password);
 			}
 		}
 	}
