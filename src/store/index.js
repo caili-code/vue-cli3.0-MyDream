@@ -10,7 +10,7 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		login(state) {
-			localStorage.token = state.token;
+			state.token;
 		}
 	},
 	actions: {},
