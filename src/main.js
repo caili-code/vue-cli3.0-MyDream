@@ -6,6 +6,7 @@ import './plugins/element.js'
 import './style/global.css'
 import axios from 'axios';
 import vueAxios from 'vue-axios';
+import '@/assets/icons'
 Vue.use(vueAxios,axios);//Vue.axios/this.axios/this.$http使用axios，一次封装方便协作规范
 
 new Vue({

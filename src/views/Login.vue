@@ -1,12 +1,19 @@
 <template>
 	<div class="login-container">
 		<el-form :model="ruleForm" :rules="rules" ref="ruleForm">
-			<h3 class="title">Randy</h3>
+			<h3 class="title">虾大大后台管理系统</h3>
 			<el-form-item prop="username">
-				<el-input prefix-icon="el-icon-s-custom" v-model="ruleForm.username" type="text" ></el-input>
+				<el-input prefix-icon="el-icon-s-custom" v-model="ruleForm.username" type="text"></el-input>
 			</el-form-item>
 			<el-form-item>
 				<el-input prefix-icon="el-icon-lock" v-model="ruleForm.password" show-password></el-input>
+			</el-form-item>
+			<el-form-item>
+				<el-input style="width:63%" v-model="ruleForm.code" type="text">
+					<svg-icon slot="prefix" iconClass='anquan' className='icon'></svg-icon>
+				</el-input>
+				<div class="login-code">
+				</div>
 			</el-form-item>
 			<el-form-item>
 				<el-button type="primary" style="height: 100%;width: 100%;" @click="loginCheck()">登录</el-button>
@@ -22,13 +29,13 @@
 	import {
 		login1
 	} from '../api/service.js'
-
 	export default {
 		data() {
 			return {
 				ruleForm: {
 					username: '',
-					password:''
+					password: '',
+					code: ''
 				},
 
 				rules: {
@@ -47,16 +54,19 @@
 
 		},
 		methods: {
-			loginCheck(){
-				const params=this.ruleForm;
+			loginCheck() {
+				const params = this.ruleForm;
+				console.log(params)
 				login1(params);
+				this.$router.push('/Home')
 			}
-			
-			}
+
+		}
 	}
 </script>
 <style ref="stylesheet/scss" lang="scss">
 	$bg:#33334c;
+
 	.login-container {
 		height: 100%;
 		width: 100%;
@@ -69,14 +79,18 @@
 		font-size: 30px;
 		color: white;
 	}
+	.icon{
+		width: 200px;
+		height: 200px;
+		color: red;
+	}
+
 </style>
 <style ref="stylesheet/scss" lang="scss">
 	$input_weight:520px;
 
 	.login-container {
-		.el-form-item {
-
-		}
+		.el-form-item {}
 
 		.el-form {
 			position: absolute;

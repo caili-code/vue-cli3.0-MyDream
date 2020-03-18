@@ -6,24 +6,29 @@ Vue.use(VueRouter)
 
 const routes = [{
 		path: '/login',
+		hidden: true,
 		component: login,
 	},
 	{
 		path: '/',
+		hidden: true,
 		redirect: '/login'
-		
+
 	},
 	{
 		path: '/Home',
+		hidden: true,
 		component: home,
 		meta: {
-			requireAuth:
-			true}
-		
+			requireAuth: true
+		}
+
 	}
 ]
 
 const router = new VueRouter({
+	mode: 'hash', // 去掉url中的#
+	scrollBehavior: () => ({ y: 0 }),
 	routes
 })
 
