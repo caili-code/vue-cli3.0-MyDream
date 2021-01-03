@@ -21,7 +21,7 @@
 								</router-link>
 								<router-link to="/test1">
 									<el-menu-item index="2">
-										<span slot="title">入库新增</span>
+										<span slot="title">入库</span>
 									</el-menu-item>
 								</router-link>
 
@@ -114,7 +114,7 @@
 		background-color: #E9EEF3;
 		color: #333;
 		text-align: center;
-		line-height: 757px;
+		height: 798px;
 	}
 
 	body>.el-container {
